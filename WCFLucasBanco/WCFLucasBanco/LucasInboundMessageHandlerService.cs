@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.MsmqIntegration;
+using WCF.OrderReader;
 
 namespace WCFLucasBanco
 {
@@ -16,6 +17,8 @@ namespace WCFLucasBanco
             Console.WriteLine("------------------------------------ mensagem recebida ---------------------------------------");
             Console.WriteLine(orderRequest.Name);
             Console.WriteLine();
+
+            new LucasRepo().Insert(incomingOrderMessage.Body);
         }
     }
 }

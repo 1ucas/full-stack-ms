@@ -17,9 +17,9 @@ namespace WSLucas
     public class LucasWS : System.Web.Services.WebService
     {
         [WebMethod]
-        public string GetById(int id)
+        public List<Lucas> Get()
         {
-            return new LucasWCFRepo().GetById(id).Name;
+            return new LucasWCFRepo().Get();
         }
     }
 }

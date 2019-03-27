@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -21,14 +22,16 @@ namespace LucasWCF
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "GetLucas?id={id}")]
-        Lucas GetLucas(int id);
+            UriTemplate = "GetLucas")]
+        List<Lucas> GetLucas();
     }
 
 
     [DataContract]
     public class Lucas
     {
+        public ObjectId Id { get; set; }
+
         [DataMember]
         public string Name { get; set; }
     }

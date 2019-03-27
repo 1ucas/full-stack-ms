@@ -8,7 +8,7 @@ namespace WCFLucasBanco
         static void Main(string[] args)
         {
             //SELF-HOST (repare que não estou utilizando o IIS)
-            using (var host = new ServiceHost(typeof(OrderInboundMessageHandlerService)))
+            using (var host = new ServiceHost(typeof(LucasInboundMessageHandlerService)))
             {
                 host.Faulted += Faulted;
                 host.Open();

@@ -18,7 +18,7 @@ namespace LucasWCF
         public string CreateLucas(Lucas lucas)
         {
             // Colocar na fila
-            using (var queue = new MessageQueue(@".\Private$\filalucastransacional"))
+            using (var queue = new MessageQueue(@".\Private$\filalucas"))
             {
                 queue.Formatter = new XmlMessageFormatter(new String[] { "System.String,mscorlib" });
                 
@@ -37,12 +37,9 @@ namespace LucasWCF
             return "OK";
         }
 
-        public Lucas GetLucas(int id)
+        public List<Lucas> GetLucas()
         {
-            return new Lucas
-            {
-                Name = "Lucas From WCF - " + id
-            };
+            return new LucasRepo().Get();
         }
     }
 }

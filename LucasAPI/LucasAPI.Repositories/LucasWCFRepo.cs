@@ -12,7 +12,7 @@ namespace LucasAPI.Repositories
         {
             string baseURL = "http://localhost:53706/LucasService.svc/";
             string result = null;
-            using (var client = new HttpClient())
+            using (var client = new HttpClient()) // usado com using ao invés de static para fins educacionais
             {
                 client.BaseAddress = new Uri(baseURL);
                 var json = JsonConvert.SerializeObject(lucas);
